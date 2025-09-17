@@ -1,1 +1,1 @@
-# Brawlhalla Legends Randomizer (BLR)
+# Brawlhalla legends randomizer (BLR)
