@@ -10,9 +10,15 @@ crpg = SystemRandom()
 def buttnf():
 
     if checkbuttonvariable.get() == 1:
-        labeltextvariable.set(crpg.choice(names_whitelist).upper())
+        randomvalue = crpg.choice(names_whitelist).upper()
+        while labeltextvariable.get().upper() == randomvalue:
+            randomvalue = crpg.choice(names_whitelist).upper()
+        labeltextvariable.set(randomvalue)
     else:
-        labeltextvariable.set(crpg.choice(names).upper())
+        randomvalue = crpg.choice(names).upper()
+        while labeltextvariable.get().upper() == randomvalue:
+            randomvalue = crpg.choice(names).upper()
+        labeltextvariable.set(randomvalue)
 
     image = Image.open(f"portraits-f/{labeltextvariable.get()}.jpg")
     image = ImageTk.PhotoImage(image)
