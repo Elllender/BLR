@@ -8,17 +8,10 @@ from PIL import Image, ImageTk
 crpg = SystemRandom()
 
 def buttnf():
-
-    if checkbuttonvariable.get() == 1:
-        randomvalue = crpg.choice(names_whitelist).upper()
-        while labeltextvariable.get().upper() == randomvalue:
-            randomvalue = crpg.choice(names_whitelist).upper()
-        labeltextvariable.set(randomvalue)
-    else:
-        randomvalue = crpg.choice(names).upper()
-        while labeltextvariable.get().upper() == randomvalue:
-            randomvalue = crpg.choice(names).upper()
-        labeltextvariable.set(randomvalue)
+    randomvalue = crpg.choice(legends_d[checkbuttonvariable.get()]).upper()
+    while labeltextvariable.get().upper() == randomvalue:
+        randomvalue = crpg.choice(legends_d[checkbuttonvariable.get()]).upper()
+    labeltextvariable.set(randomvalue)
 
     image = Image.open(f"portraits-f/{labeltextvariable.get()}.jpg")
     image = ImageTk.PhotoImage(image)
@@ -26,6 +19,8 @@ def buttnf():
     labelim.config(image=image)
     labelim.image = image
 
+
+# dataload
 files = listdir('portraits/')
 
 names = []
@@ -39,6 +34,12 @@ with open('whitelist.txt', 'r', encoding='utf-8') as f:
     names_whitelist = f.readlines()
 
 names_whitelist = [x.replace('\n', '') for x in names_whitelist]
+
+legends_d = {
+    0: names,
+    1: names_whitelist
+}
+# dataload
 
 root = Tk()
 
