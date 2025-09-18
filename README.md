@@ -1,6 +1,6 @@
 # Brawlhalla legends randomizer (BLR)
 
-• BLR - A program for quick random selection of the brawlhalla legend
+▸ BLR - A program for quick random selection of the brawlhalla legend
 <table align="center" border=0>
   <thead>
     <tr>
